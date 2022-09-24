@@ -21,7 +21,7 @@ import jakarta.servlet.http.HttpServletResponse;
  */
 @WebServlet(urlPatterns = {"/NewServlet"})
 public class NewServlet extends HttpServlet {
-    Tienda producto;
+    Tienda tienda;
     TiendaController registroproducto;
      Tienda[] productoRegistrados;
      StringBuffer objetoRespuesta = new StringBuffer();
@@ -53,20 +53,20 @@ public class NewServlet extends HttpServlet {
            String control = request.getParameter("control");
            
            if(control.toUpperCase().equals("GUARDAR")){
-               producto=new Tienda(
+               tienda=new Tienda(
                 Integer.parseInt(request.getParameter("codigo")),
                 request.getParameter("nombre"),
                 request.getParameter("correo"),
                 request.getParameter("direccion"),
                 Integer.parseInt(request.getParameter("opcion")));                
-                registroproducto.guardarProducto2(producto);//almacenarlo en BD                 
+                registroproducto.guardarProducto2(tienda);//almacenarlo en BD                 
            }else if(control.toUpperCase().equals("ELIMINAR")){
                int codigoEliminar= Integer.parseInt(request.getParameter("codigo_alumno"));
                registroproducto.eliminarProducto(codigoEliminar);
            }
                         
             
-            registroproducto.guardarProducto(producto);//almacenarlo en el array
+            registroproducto.guardarProducto(tienda);//almacenarlo en el array
             productoRegistrados= registroproducto.getProducto();// consultar alumnos en el array                       
                     
            registroproducto.getProducto2(objetoRespuesta);//consultar alumnos en la BD

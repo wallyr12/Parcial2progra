@@ -13,7 +13,7 @@ public class Tienda {
     private int tipo;
 
     
-    public Tienda(int codigo, String marca, String modelo, String dimension, int tipo){
+    public Tienda(int codigo, String marca, String modelo, String dimension,String año, int tipo){
         this.codigo=codigo;
         this.marca=marca;
         this.modelo=modelo;
@@ -24,6 +24,10 @@ public class Tienda {
     
     public Tienda(){
         this.marca="Marca de ejemplo";
+    }
+
+    public Tienda(int parseInt, String parameter, String parameter0, String parameter1, int parseInt0) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     public int getCodigo() {
